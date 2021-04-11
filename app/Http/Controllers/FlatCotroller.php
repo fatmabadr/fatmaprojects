@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Flat;
 use Illuminate\Http\Request;
 
-class flatsCotroller extends Controller
+class FlatCotroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,16 @@ class flatsCotroller extends Controller
      */
     public function addnewFlat(Request $req)
     {
-    $flate=new Flat;
-    $flate->title =$req ->input('name');
-    $flate->price=$req ->input('name');
-    $flate->save();
-    return 'success'.$req;
+
+    $flat=new Flat;
+    $flat->title =$req ->input('title');
+    $flat->price =$req ->input('price');
+    $flat->Property =$req ->input('property');
+    $flat->noOfRooms =$req ->input('noOfRooms');
+    $flat->detail =$req ->input('details');
+    
+    $flat->save();
+    return $req->input();
     }
 
 

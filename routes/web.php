@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/getusername', 'userController@index');
-Route::get('/addnewFlat', 'flatsCotroller@create');
-Route::post('/Flats/submit','flatsCotroller@addnewFlat');
+Route::get('/addnewFlat', 'FlatCotroller@create');
+Route::post('/Flats/submit','FlatCotroller@addnewFlat');

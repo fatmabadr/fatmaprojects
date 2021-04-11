@@ -14,9 +14,13 @@ class CreateFlatsTable extends Migration
     public function up()
     {
         Schema::create('flats', function (Blueprint $table) {
-            $table->string('title');
-            $table->string('price');
+            
             $table->bigIncrements('id');
+            $table->string('title');
+            $table->float('price');
+            $table->float('Property');
+            $table->integer('noOfRooms');
+            $table->text('detail'); 
             $table->timestamps();
         });
     }

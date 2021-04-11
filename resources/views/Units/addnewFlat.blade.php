@@ -1,19 +1,38 @@
 
-  <h1>Contact</h1>
+  <h1>add new flat</h1>
   {!! Form::open(['url' => 'Flats/submit']) !!}
     <div class="form-group">
-      {{Form::label('name', 'Name')}}
-      {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Enter name'])}}
+      {{Form::label('title', 'title')}}
+      {{Form::text('title', '', ['class' => 'form-control'])}}
+    </div>
+
+    <div class="form-group">
+      {{Form::label('price', 'Price')}}
+      {{Form::text('price', '', ['class' => 'form-control'])}}
     </div>
     <div class="form-group">
-      {{Form::label('email', 'E-Mail Address')}}
-      {{Form::text('email', '', ['class' => 'form-control', 'placeholder' => 'Enter email'])}}
+      {{Form::label('property', 'Property')}}
+      {{Form::text('property', '', ['class' => 'form-control'])}}
     </div>
+
     <div class="form-group">
-      {{Form::label('message', 'Message')}}
-      {{Form::textarea('message', '', ['class' => 'form-control', 'placeholder' => 'Enter message'])}}
+      {{Form::label('noOfRooms', 'noOfRooms')}}
+      {{Form::text('noOfRooms', '', ['class' => 'form-control'])}}
+    </div>
+
+   
+    <div class="form-group">
+      {{Form::label('details ', 'details ')}}
+      {{Form::textarea('details', '', ['class' => 'form-control', 'placeholder' => 'Enter details'])}}
     </div>
     <div>
       {{Form::submit('Submit', ['class'=> 'btn btn-primary'])}}
     </div>
   {!! Form::close() !!}
+
+
+
+
+
+
+          
