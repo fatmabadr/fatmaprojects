@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/getusername', 'userController@index');
+
 Route::get('/addnewFlat', 'FlatCotroller@create');
 Route::post('/Flats/submit','FlatCotroller@addnewFlat');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

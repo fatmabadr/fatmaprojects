@@ -1,4 +1,10 @@
+@extends('layouts.app')
 
+@section('content')
+ 
+<div class="container">
+
+ 
   <h1>add new flat</h1>
   {!! Form::open(['url' => 'Flats/submit']) !!}
     <div class="form-group">
@@ -32,7 +38,9 @@
 
 
 
+            
+ 
 
-
+  @endsection
 
           
