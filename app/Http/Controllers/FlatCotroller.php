@@ -22,8 +22,10 @@ class FlatCotroller extends Controller
     {
 
     $flat=new Flat;
+    
     $flat->title =$req ->input('title');
     $flat->price =$req ->input('price');
+    $flat->user_id=$req->input('user_id');
     $flat->Property =$req ->input('property');
     $flat->noOfRooms =$req ->input('noOfRooms');
     $flat->detail =$req ->input('details');

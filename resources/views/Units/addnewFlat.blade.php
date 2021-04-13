@@ -5,7 +5,7 @@
 <div class="container">
 
  
-  <h1>add new flat</h1>
+  <h1>add new flat ya {{ Auth::user()->name  }}^_^</h1>
   {!! Form::open(['url' => 'Flats/submit']) !!}
     <div class="form-group">
       {{Form::label('title', 'title')}}
@@ -16,6 +16,11 @@
       {{Form::label('price', 'Price')}}
       {{Form::text('price', '', ['class' => 'form-control'])}}
     </div>
+
+
+    <input  type="hidden"id="user_id" type="user_id"  name="user_id" value={{ Auth::user()->id }}>
+
+    
     <div class="form-group">
       {{Form::label('property', 'Property')}}
       {{Form::text('property', '', ['class' => 'form-control'])}}

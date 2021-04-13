@@ -45,8 +45,9 @@
                             <label for="mobile" class="col-md-4 col-form-label text-md-right">{{ __('mobile Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="mobile" name="mobile" >
-                                
+                                <input id="mobile" name="mobile">
+
+
                             </div>
                         </div>
 
@@ -54,10 +55,12 @@
                         <div class="form-group row">
                             <label for="account_type" class="col-md-4 col-form-label text-md-right">{{ __('account_type') }}</label>
 
-                        <input type="radio" id="owner" name="gender" value="owner">
+                        <input type="radio" id="super_amdin" name="type" value="super_amdin">
+                        <label for="super_amdin">super_amdin</label><br>
+                        <input type="radio" id="owner" name="type" value="owner">
                         <label for="owner">owner</label><br>
-                        <input type="radio" id="renter" name="gender" value="renter">
-                        <label for="renter">renter</label><br>
+                        <input type="radio" id="clint" name="type" value="clint">
+                        <label for="clint">clint</label><br>
                         </div>
 
 

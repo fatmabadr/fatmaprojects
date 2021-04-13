@@ -18,13 +18,15 @@ class CreateFlatsTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('title');
-            $table->bigIncrements('user_id')->unsigned();
+            $table->unsignedInteger('user_id')->unsigned();
             $table->float('price');
             $table->float('Property');
             $table->integer('noOfRooms');
             $table->text('detail'); 
             $table->timestamps();       
-            $table->foreign('user_id')->references('id')->on('users') ->onCascade('delete');
+         
+
+
         });
     }
 
