@@ -19,7 +19,7 @@ class User extends Authenticatable
     public function flats(){return $this->hasMany('App\Flat');}
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','mobile'
     ];
 
     /**
