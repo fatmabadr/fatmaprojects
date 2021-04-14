@@ -21,3 +21,6 @@ Route::post('/Flats/submit','FlatCotroller@addnewFlat');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/allFlats', 'FlatCotroller@showall');

@@ -6,7 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Flat extends Model
 {
-    public function user(){
-        return $this->belongTo('App/User');
+    
+    // public function User()
+    // {
+    // 	return $this->hasMany(Flat::class);
+    // }
+
+
+    public function User(){
+        return $this->belongsTo(User::class,'user_id');
     }
+
 }

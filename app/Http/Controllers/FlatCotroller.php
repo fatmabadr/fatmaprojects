@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Flat;
+use App\User;
 use Illuminate\Http\Request;
 
 class FlatCotroller extends Controller
@@ -62,9 +63,16 @@ class FlatCotroller extends Controller
      * @param  \App\Flate  $flate
      * @return \Illuminate\Http\Response
      */
-    public function show(Flate $flate)
+    public function showall()
     {
-        //
+
+
+     
+            $flats= Flat::with('user')->get();
+
+
+    
+   return view('Outputs.allFlats',['flats'=>$flats]);
     }
 
     /**
@@ -75,7 +83,7 @@ class FlatCotroller extends Controller
      */
     public function edit(Flate $flate)
     {
-        //
+        
     }
 
     /**
