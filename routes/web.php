@@ -16,11 +16,18 @@ Route::get('/', function () {
 });
 
 
-Route::get('/addnewFlat', 'FlatCotroller@create');
-Route::post('/Flats/submit','FlatCotroller@addnewFlat');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/allFlats', 'FlatCotroller@showall');
+//Flats
+Route::get('/addnewFlat', 'FlatCotroller@create');
+Route::post('/Flats/submit','FlatCotroller@store');
+Route::get('/allFlats', 'FlatCotroller@index');
+
+//Features
+Route::get('/Feature/create', 'FeatureController@create');
+Route::post('/Feature/submit','FeatureController@store');
+Route::get('/Feature/index', 'FeatureController@index');

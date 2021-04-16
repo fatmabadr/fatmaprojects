@@ -12,8 +12,9 @@
         <th>user_id</th>
         <th>Property</th>
         <th>noOfRooms</th>
-        <th>deails</th>
+      
         <th>Owner</th>
+        <th>deails</th>
       </tr>
     </thead>
    
@@ -31,8 +32,9 @@
         <td> {{ $flat->user_id }}</td>
         <td> {{ $flat->Property }}m2</td>
         <td> {{ $flat->noOfRooms }}</td>
-        <td> {{ $flat->detail }}</td>
         <td> {{ $flat->user->name}}</td>
+        <td> {{ $flat->detail }}</td>
+      
       </tr>
       @endforeach
    
