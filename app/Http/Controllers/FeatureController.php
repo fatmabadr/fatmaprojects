@@ -14,8 +14,8 @@ class FeatureController extends Controller
      */
     public function index()
     { 
-        
-        return view('features.index',['features'=>Feature::all()]);
+       // return ['features'=>Feature::all()];
+        return view('Units.create',['features'=>Feature::all()]);
 
     }
 

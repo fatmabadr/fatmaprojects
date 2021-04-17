@@ -22,16 +22,16 @@ class FlatCotroller extends Controller
 public function store(Request $request)
     {
 
-    $flat=new Flat;
+    // $flat=new Flat;
     
-    $flat->title =$request ->input('title');
-    $flat->price =$request ->input('price');
-    $flat->user_id=$request->input('user_id');
-    $flat->Property =$request ->input('property');
-    $flat->noOfRooms =$request ->input('noOfRooms');
-    $flat->detail =$request ->input('details');
+    // $flat->title =$request ->input('title');
+    // $flat->price =$request ->input('price');
+    // $flat->user_id=$request->input('user_id');
+    // $flat->Property =$request ->input('property');
+    // $flat->noOfRooms =$request ->input('noOfRooms');
+    // $flat->detail =$request ->input('details');
     
-    $flat->save();
+    // $flat->save();
     return $request->input();
     }
 
@@ -43,7 +43,7 @@ public function store(Request $request)
      */
     public function create()
     {
-        return view('Units.addnewFlat');
+        return view('Units.create');
     }
 
     /**
@@ -64,7 +64,7 @@ public function store(Request $request)
     {
 
 
-   return view('Outputs.allFlats',['flats'=>Flat::with('user')->get()]);
+   return view('flats.index',['flats'=>Flat::with('user')->get()]);
     }
 
     /**

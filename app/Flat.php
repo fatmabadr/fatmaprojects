@@ -16,5 +16,8 @@ class Flat extends Model
     public function User(){
         return $this->belongsTo(User::class,'user_id');
     }
+    public function Feature(){
+        return $this->belongsTo(Feature::class,'feature_id');
+    }
 
 }

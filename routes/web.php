@@ -23,9 +23,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //Flats
-Route::get('/addnewFlat', 'FlatCotroller@create');
+Route::get('/flats/create', 'FeatureController@index');
 Route::post('/Flats/submit','FlatCotroller@store');
-Route::get('/allFlats', 'FlatCotroller@index');
+Route::get('/flat/index', 'FlatCotroller@index');
 
 //Features
 Route::get('/Feature/create', 'FeatureController@create');
