@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Flat;
 use App\User;
+
+use App\Unit_feature;
+
 use Illuminate\Http\Request;
 
 class FlatCotroller extends Controller
@@ -22,16 +25,22 @@ class FlatCotroller extends Controller
 public function store(Request $request)
     {
 
-    // $flat=new Flat;
+    $flat=new Flat;
+    $flat->title =$request ->input('title');
+    $flat->price =$request ->input('price');
+    $flat->user_id=$request->input('user_id');
+    $flat->Property =$request ->input('property');
+    $flat->noOfRooms =$request ->input('noOfRooms');
+    $flat->detail =$request ->input('details');
+    $flat->save();
+    //add to unit_features
+    $unit_feature=new Unit_feature;
+    $unit_feature->unit_id =  $flat->id;
+    $unit_feature->feature_id= '2';
+    $unit_feature->save();
+
     
-    // $flat->title =$request ->input('title');
-    // $flat->price =$request ->input('price');
-    // $flat->user_id=$request->input('user_id');
-    // $flat->Property =$request ->input('property');
-    // $flat->noOfRooms =$request ->input('noOfRooms');
-    // $flat->detail =$request ->input('details');
-    
-    // $flat->save();
+
     return $request->input();
     }
 

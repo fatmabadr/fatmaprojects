@@ -33,10 +33,12 @@
 
     @foreach($features as $feature)
  
-
    
-    <input type="checkbox" id="{{$feature->id}}" name="{{$feature->name}}" value="{{$feature->name}}">
-    <label for="feature"> {{$feature->name}}</label><br>
+    <input type="checkbox" id="{{$feature->id}}" name="{{$feature->id}}" value="{{$feature->id}}">
+    <label for="feature->id"> {{$feature->name}}</label><br>
+   
+    <!-- <input type="checkbox" id="{{$feature->id}}" name="{{$feature->name}}" value="{{$feature->name}}">
+    <label for="feature"> {{$feature->name}}</label><br> -->
 
 @endforeach
 
