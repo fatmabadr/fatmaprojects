@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFlatsTable extends Migration
+class CreateUnitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateFlatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('flats', function (Blueprint $table) {
-            
+        Schema::create('units', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->string('type');
             $table->string('title');
             $table->unsignedInteger('user_id')->unsigned();
             $table->float('price');
@@ -25,8 +24,6 @@ class CreateFlatsTable extends Migration
             $table->text('detail'); 
             $table->timestamps();       
          
-
-
         });
     }
 
@@ -37,6 +34,6 @@ class CreateFlatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('flats');
+        Schema::dropIfExists('units');
     }
 }
