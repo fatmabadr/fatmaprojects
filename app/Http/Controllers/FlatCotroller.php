@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Flat;
 use App\User;
+use App\Feature;
 
 use App\Unit_feature;
 
@@ -34,14 +35,26 @@ public function store(Request $request)
     $flat->detail =$request ->input('details');
     $flat->save();
     //add to unit_features
-    $unit_feature=new Unit_feature;
-    $unit_feature->unit_id =  $flat->id;
-    $unit_feature->feature_id= '2';
-    $unit_feature->save();
 
-    
 
-    return $request->input();
+
+$features =Feature::all();
+foreach ($features as $feature) {
+    if ($request->has($feature->id)){
+        $unit_feature=new Unit_feature;
+        $unit_feature->unit_id = $flat->id;
+        $unit_feature->feature_id= $feature->id;
+        $unit_feature->save();      }
+                                }
+
+return "Done"   ;
+
+
+
+
+
+    //return $request;
+    // count($request->all());
     }
 
 

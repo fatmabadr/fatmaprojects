@@ -37,7 +37,7 @@ class FeatureController extends Controller
      */
     public function store(Request $request)
     {
-        
+    
     $feature=new Feature;
     
     $feature->name =$request ->input('name');
