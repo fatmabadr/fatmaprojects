@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('front.index');
+});
+
+Route::get('/list', function () {
+    return view('front.list');
+});
+
 
 
 Auth::routes();
@@ -31,3 +39,4 @@ Route::get('/flat/index', 'FlatCotroller@index');
 Route::get('/Feature/create', 'FeatureController@create');
 Route::post('/Feature/submit','FeatureController@store');
 Route::get('/Feature/index', 'FeatureController@index');
+
