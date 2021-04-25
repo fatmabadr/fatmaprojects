@@ -15,6 +15,7 @@
       
         <th>Owner</th>
         <th>deails</th>
+        <th>features</th>
       </tr>
     </thead>
    
@@ -22,19 +23,20 @@
    
     <tbody>
 
-    @foreach($flats as $flat)
+    @foreach($units as $unit)
  
 
 
       <tr>
-        <td> {{ $flat->title }}</td>
-        <td> {{ $flat->price }}$</td>
-        <td> {{ $flat->user_id }}</td>
-        <td> {{ $flat->Property }}m2</td>
-        <td> {{ $flat->noOfRooms }}</td>
-        <td> {{ $flat->user->name}}</td>
-        <td> {{ $flat->detail }}</td>
-      
+        <td> {{ $unit->title }}</td>
+        <td> {{ $unit->price }}$</td>
+        <td> {{ $unit->user_id }}</td>
+        <td> {{ $unit->Property }}m2</td>
+        <td> {{ $unit->noOfRooms }}</td>
+        <td> {{ $unit->user->name}}</td>
+        <td> {{ $unit->detail }}</td>
+        <td> {{ $unit->Feature}}</td>
+
       </tr>
       @endforeach
    

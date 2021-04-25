@@ -14,6 +14,7 @@ class CreateUnitFeaturesTable extends Migration
     public function up()
     {
         Schema::create('unit_features', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->integer('unit_id');
             $table->integer('feature_id');
             $table->timestamps();

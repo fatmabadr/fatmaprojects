@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
 
-    public function flats(){return $this->hasMany('App\Flat');}
+   // public function flats(){return $this->hasMany('App\Flat');}
 
     protected $fillable = [
         'name', 'email', 'password','mobile','type'
@@ -44,8 +44,8 @@ class User extends Authenticatable
 
    
 
-    public function Flat(){
-        return $this->hasMany(Flat::class);
+    public function Unit(){
+        return $this->hasMany(Unit::class);
         
     }
 

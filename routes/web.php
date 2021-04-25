@@ -31,9 +31,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //Flats
-Route::get('/flats/create', 'FeatureController@index');
-Route::post('/Flats/submit','FlatCotroller@store');
-Route::get('/flat/index', 'FlatCotroller@index');
+Route::get('/units/create', 'FeatureController@index');
+                             
+Route::post('/Units/submit','UnitController@store');
+Route::get('/units/index', 'UnitController@index');
 
 //Features
 Route::get('/Feature/create', 'FeatureController@create');

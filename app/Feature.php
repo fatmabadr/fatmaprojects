@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Feature extends Model
 {
-    public function Flat(){
-        return $this->belongsTo(Flat::class,'flat_id');
+    public function Unit(){
+        return $this->belongsToMany(Unit::class,'unit_features');
     }
 
 

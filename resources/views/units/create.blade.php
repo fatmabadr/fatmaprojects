@@ -6,7 +6,13 @@
 
  
   <h1>add new flat ya {{ Auth::user()->name  }}^_^</h1>
-  {!! Form::open(['url' => 'Flats/submit']) !!}
+  {!! Form::open(['url' => 'Units/submit']) !!}
+  <div class="form-group">
+      {{Form::label('type', 'type')}}
+      {{Form::text('type', '', ['class' => 'form-control'])}}
+    </div>
+
+
     <div class="form-group">
       {{Form::label('title', 'title')}}
       {{Form::text('title', '', ['class' => 'form-control'])}}
