@@ -10,7 +10,7 @@
         <th>title</th>
         <th>price</th>
         <th>user_id</th>
-        <th>Property</th>
+        <th>area</th>
         <th>noOfRooms</th>
       
         <th>Owner</th>
@@ -31,7 +31,7 @@
         <td> {{ $unit->title }}</td>
         <td> {{ $unit->price }}$</td>
         <td> {{ $unit->user_id }}</td>
-        <td> {{ $unit->Property }}m2</td>
+        <td> {{ $unit->area }}m2</td>
         <td> {{ $unit->noOfRooms }}</td>
         <td> {{ $unit->user->name}}</td>
         <td> {{ $unit->detail }}</td>

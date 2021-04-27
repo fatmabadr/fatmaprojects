@@ -16,10 +16,11 @@ class CreateUnitsTable extends Migration
         Schema::create('units', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('type');
+            $table->unsignedInteger('city_id')->unsigned();
             $table->string('title');
             $table->unsignedInteger('user_id')->unsigned();
             $table->float('price');
-            $table->float('Property');
+            $table->float('area');
             $table->integer('noOfRooms');
             $table->text('detail'); 
             $table->timestamps();       

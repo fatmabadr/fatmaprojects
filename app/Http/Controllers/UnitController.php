@@ -7,6 +7,7 @@ use App\Unit;
 use App\User;
 use App\Feature;
 use App\UnitFeature;
+use App\City;
 
 class UnitController extends Controller
 {
@@ -23,9 +24,10 @@ class UnitController extends Controller
     $unit->title =$request ->input('title');
     $unit->price =$request ->input('price');
     $unit->user_id=$request->input('user_id');
-    $unit->Property =$request ->input('property');
+    $unit->area =$request ->input('area');
     $unit->noOfRooms =$request ->input('noOfRooms');
     $unit->detail =$request ->input('details');
+    $unit->city_id =$request ->input('city_id');
     $unit->save();
     //add to unit_features
 
@@ -48,7 +50,7 @@ return "Done"   ;
 
 public function create()
 {
-    return view('Units.create');
+    return view('units.create',['features'=>Feature::all(),'cities'=>City::all()]);
 }
 
 public function index()
@@ -59,7 +61,7 @@ public function index()
  
 //return Unit::with('Feature')->get();
 
-   return view('units.index',['units'=>Unit::with('user','Feature')->get()]);
+   return view('front.index',['units'=>Unit::with('user','Feature','City')->get()]);
     }
 
 }

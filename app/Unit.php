@@ -14,5 +14,8 @@ class Unit extends Model
         return $this->belongsToMany(Feature::class,'unit_features');
        
     }
+    public function City(){
+        return $this->belongsTo(City::class,'city_id');
+    }
 
 }

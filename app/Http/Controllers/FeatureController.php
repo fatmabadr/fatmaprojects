@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Feature;
+use App\City;
 use Illuminate\Http\Request;
 
 class FeatureController extends Controller
@@ -14,8 +15,6 @@ class FeatureController extends Controller
      */
     public function index()
     { 
-       // return ['features'=>Feature::all()];
-        return view('units.create',['features'=>Feature::all()]);
 
     }
 

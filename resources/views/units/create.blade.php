@@ -28,8 +28,8 @@
 
     
     <div class="form-group">
-      {{Form::label('property', 'Property size (m2)')}}
-      {{Form::text('property', '', ['class' => 'form-control'])}}
+      {{Form::label('area', 'area size (m2)')}}
+      {{Form::text('area', '', ['class' => 'form-control'])}}
     </div>
 
     <div class="form-group">
@@ -43,10 +43,16 @@
     <input type="checkbox" id="{{$feature->id}}" name="{{$feature->id}}" value="{{$feature->id}}">
     <label for="feature->id"> {{$feature->name}}</label><br>
    
-    <!-- <input type="checkbox" id="{{$feature->id}}" name="{{$feature->name}}" value="{{$feature->name}}">
-    <label for="feature"> {{$feature->name}}</label><br> -->
+    @endforeach
 
-@endforeach
+
+    @foreach($cities as $city)
+ 
+   
+    <input type="checkbox" id="city_id" name="city_id" value="{{$city->id}}">
+    <label for="city->id"> {{$city->name}}</label><br>
+   
+    @endforeach
 
 
     <div class="form-group">

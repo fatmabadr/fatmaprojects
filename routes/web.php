@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('front.index');
-});
+// Route::get('/home1', function () {
+//     return view('front.index');
+// });
 
 Route::get('/list', function () {
     return view('front.list');
@@ -30,8 +30,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-//Flats
-Route::get('/units/create', 'FeatureController@index');
+//units
+Route::get('/units/create', 'unitController@create');
                              
 Route::post('/Units/submit','UnitController@store');
 Route::get('/units/index', 'UnitController@index');
@@ -41,3 +41,7 @@ Route::get('/Feature/create', 'FeatureController@create');
 Route::post('/Feature/submit','FeatureController@store');
 Route::get('/Feature/index', 'FeatureController@index');
 
+//cities
+Route::get('/city/create', 'cityController@create');
+Route::post('/city/submit','cityController@store');
+Route::get('/city/index', 'cityController@index');
