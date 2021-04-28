@@ -55,18 +55,16 @@ public function create()
 }
 
 public function index()
-    {
+{
 
-   $units_type_counter= Unit::groupBy('type')->select('type', DB::raw('count(*) as total'))->get();
-    $units_stutus_counter= Unit::groupBy('status')->select('status', DB::raw('count(*) as total'))->get();
+    $units                  = Unit::with('user','Feature','City')->get();
+    $units_type_counter     = Unit::groupBy('type')->select('type', DB::raw('count(*) as total'))->get();
+    $units_stutus_counter   = Unit::groupBy('status')->select('status', DB::raw('count(*) as total'))->get();
+    $arr = array('units_type_counter'=>$units_type_counter, 'units_stutus_counter'=>$units_stutus_counter ,'units'=>$units );
+    return view('front.list',$arr);
 
-    return view('front.list',
-   ['units'=>Unit::with('user','Feature','City')->get()],
-   
-   ['units_stutus_counter'=>$units_stutus_counter],
-   ['units_type_counter'=>$units_type_counter]
-              );
-  
-    }
+
+
+}
 }
 
