@@ -8,8 +8,16 @@
   <h1>add new flat ya {{ Auth::user()->name  }}^_^</h1>
   {!! Form::open(['url' => 'Units/submit']) !!}
   <div class="form-group">
-      {{Form::label('type', 'type')}}
-      {{Form::text('type', '', ['class' => 'form-control'])}}
+    
+
+  <label for="type"> unit type:</label>
+  <select name="type" id="type">
+    <option value="Apartments">Apartments</option>
+    <option value="Houses">Houses</option>
+    <option value="villas">villas</option>
+    <option value="Land">Land</option>
+    <option value="offices">offices</option>
+  </select>
     </div>
 
 

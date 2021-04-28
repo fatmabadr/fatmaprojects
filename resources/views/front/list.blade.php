@@ -143,20 +143,33 @@
                             </div>
                             <div class="widget--content">
                                 <ul class="list-unstyled mb-0">
+                                   
+                                    {{$Apartments=0,$Houses=0,$Offices=0,$Villas=0,$Land=0}}
+                                  
+                                    @foreach($units as $unit) 
+                                    
+                                    @if ($unit->type=='Apartments') {{$Apartments++}}
+                                    @elseif ($unit->type=='Houses') {{$Houses++}}
+                                    @elseif ($unit->type=='Offices') {{$Offices++}}
+                                    @elseif ($unit->type=='villas') {{$Villas++}}
+                                    @elseif ($unit->type=='Land') {{$Land++}}
+                                    @endif
+                                    @endforeach
+                                   
                                     <li>
-                                        <a href="#">Apartments <span>(13)</span></a>
+                                        <a href="#">Apartments <span>{{$Apartments}}</span></a>
                                     </li>
                                     <li>
-                                        <a href="#">Houses <span>(8)</span></a>
+                                        <a href="#">Houses <span>{{$Houses}}</span></a>
                                     </li>
                                     <li>
-                                        <a href="#">Offices <span>(3)</span></a>
+                                        <a href="#">Offices <span>{{$Offices}}</span></a>
                                     </li>
                                     <li>
-                                        <a href="#">Villas <span>(4)</span></a>
+                                        <a href="#">Villas <span>{{$Villas}}</span></a>
                                     </li>
                                     <li>
-                                        <a href="#">Land <span>(2)</span></a>
+                                        <a href="#">Land <span>{{$Land}}</span></a>
                                     </li>
                                 </ul>
                             </div>

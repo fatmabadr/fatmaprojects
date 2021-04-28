@@ -19,9 +19,10 @@ Route::get('/', function () {
 //     return view('front.index');
 // });
 
-Route::get('/list', function () {
-    return view('front.list');
-});
+// Route::get('/list', function () {
+//     return view('front.list');
+// });
+Route::get('/list', 'UnitController@index1');
 
 
 
@@ -31,8 +32,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //units
-Route::get('/units/create', 'unitController@create');
-                             
+Route::get('/units/create', 'unitController@create');                             
 Route::post('/Units/submit','UnitController@store');
 Route::get('/units/index', 'UnitController@index');
 

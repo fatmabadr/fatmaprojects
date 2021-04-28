@@ -53,16 +53,10 @@ public function create()
     return view('units.create',['features'=>Feature::all(),'cities'=>City::all()]);
 }
 
-public function index()
+public function index1()
     {
-
-    //return Unit::with('User')->get();
-    $unit = Unit::all();	
- 
-//return Unit::with('Feature')->get();
-
-   return view('front.index',['units'=>Unit::with('user','Feature','City')->get()]);
+   $unit = Unit::all();	
+   return view('front.list',['units'=>Unit::with('user','Feature','City')->get()]);
     }
-
 }
 
