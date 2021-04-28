@@ -22,7 +22,7 @@ Route::get('/', function () {
 // Route::get('/list', function () {
 //     return view('front.list');
 // });
-Route::get('/list', 'UnitController@index1');
+Route::get('/list', 'UnitController@index');
 
 
 

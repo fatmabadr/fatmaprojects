@@ -23,6 +23,7 @@ class CreateUnitsTable extends Migration
             $table->float('area');
             $table->integer('noOfRooms');
             $table->text('detail'); 
+            $table->string('status'); 
             $table->timestamps();       
          
         });

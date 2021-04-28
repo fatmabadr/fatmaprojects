@@ -19,7 +19,14 @@
     <option value="offices">offices</option>
   </select>
     </div>
-
+    <div class="form-group">
+    <label for="status"> unit status:</label>
+    <select name="status" id="status">
+    <option value="For rent">For rent</option>
+    <option value="for sale">for sale</option>
+    
+  </select>
+    </div>
 
     <div class="form-group">
       {{Form::label('title', 'title')}}

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 use App\Unit;
 use App\User;
@@ -23,6 +23,7 @@ class UnitController extends Controller
     $unit->type=$request->input('type');
     $unit->title =$request ->input('title');
     $unit->price =$request ->input('price');
+    $unit->status=$request->input('status');
     $unit->user_id=$request->input('user_id');
     $unit->area =$request ->input('area');
     $unit->noOfRooms =$request ->input('noOfRooms');
@@ -53,10 +54,19 @@ public function create()
     return view('units.create',['features'=>Feature::all(),'cities'=>City::all()]);
 }
 
-public function index1()
+public function index()
     {
-   $unit = Unit::all();	
-   return view('front.list',['units'=>Unit::with('user','Feature','City')->get()]);
+
+   $units_type_counter= Unit::groupBy('type')->select('type', DB::raw('count(*) as total'))->get();
+    $units_stutus_counter= Unit::groupBy('status')->select('status', DB::raw('count(*) as total'))->get();
+
+    return view('front.list',
+   ['units'=>Unit::with('user','Feature','City')->get()],
+   
+   ['units_stutus_counter'=>$units_stutus_counter],
+   ['units_type_counter'=>$units_type_counter]
+              );
+  
     }
 }
 

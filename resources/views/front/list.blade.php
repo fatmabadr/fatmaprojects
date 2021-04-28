@@ -144,33 +144,13 @@
                             <div class="widget--content">
                                 <ul class="list-unstyled mb-0">
                                    
-                                    {{$Apartments=0,$Houses=0,$Offices=0,$Villas=0,$Land=0}}
                                   
-                                    @foreach($units as $unit) 
-                                    
-                                    @if ($unit->type=='Apartments') {{$Apartments++}}
-                                    @elseif ($unit->type=='Houses') {{$Houses++}}
-                                    @elseif ($unit->type=='Offices') {{$Offices++}}
-                                    @elseif ($unit->type=='villas') {{$Villas++}}
-                                    @elseif ($unit->type=='Land') {{$Land++}}
-                                    @endif
-                                    @endforeach
+                                   @foreach($units_type_counter as $units_type_counter)
+                                    <li>
+                                        <a href="#">{{$units_type_counter->type}} <span>({{$units_type_counter->total}})</span></a>
+                                    </li>
+                                   @endforeach
                                    
-                                    <li>
-                                        <a href="#">Apartments <span>{{$Apartments}}</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Houses <span>{{$Houses}}</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Offices <span>{{$Offices}}</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Villas <span>{{$Villas}}</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Land <span>{{$Land}}</span></a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -184,12 +164,7 @@
                             </div>
                             <div class="widget--content">
                                 <ul class="list-unstyled mb-0">
-                                    <li>
-                                        <a href="#">For Rent <span>(25)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">For Sale <span>(32)</span></a>
-                                    </li>
+                              {{$units_stutus_counter}}
                                 </ul>
                             </div>
                         </div>
