@@ -28,12 +28,11 @@
                                                     <i class="fa fa-angle-down"></i>
                                                     <select name="select-location" id="select-location">
                                             <option>Any Location</option>
-                                            <option>Alabama</option>
-											<option>Alaska</option>
-											<option>California</option>
-											<option>Florida</option>
-											<option>Mississippi</option>
-											<option>Oregon</option>
+                                            @foreach($cities_count as $cities_count)
+                                
+                                      
+                                            <option>{{$cities_count->name}} </option>
+											@endforeach
                                         </select>
                                                 </div>
                                             </div>
@@ -44,11 +43,10 @@
                                                 <div class="select--box">
                                                     <i class="fa fa-angle-down"></i>
                                                     <select name="select-type" id="select-type">
-                                            <option>Any Type</option>
-                                            <option>Apartment</option>
-											<option>House</option>
-											<option>Office</option>
-											<option>Villa</option>
+                                                    <option>Any Type</option>
+                                           @foreach($units_type_counterr as $units_type_counterr)
+                                            <option>{{$units_type_counterr->type}}</option>
+                                            @endforeach
                                         </select>
                                                 </div>
                                             </div>
@@ -60,8 +58,9 @@
                                                     <i class="fa fa-angle-down"></i>
                                                     <select name="select-status" id="select-status">
                                            <option>Any Status</option>
-                                            <option>For Rent</option>
-                                        	<option>For Sale</option>
+                                            @foreach($units_stutus_counter2 as $units_stutus_counter2)
+                                            <option>{{$units_stutus_counter2->status}}</option>
+                                        	@endforeach
                                         </select>
                                                 </div>
                                             </div>
@@ -76,30 +75,15 @@
                                                 <div class="select--box">
                                                     <i class="fa fa-angle-down"></i>
                                                     <select name="select-beds" id="select-beds">
-                                            <option>Beds</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                            <option>noOfRooms</option>
+                                            @foreach($units_room_counter as $units_room_counter)
+                                            <option>{{$units_room_counter->noOfRooms}}</option>
+                                         @endforeach
                                         </select>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- .col-md-3 end -->
-                                        <div class="col-xs-12 col-sm-6 col-md-3 option-hide">
-                                            <div class="form-group">
-                                                <div class="select--box">
-                                                    <i class="fa fa-angle-down"></i>
-                                                    <select name="select-baths" id="select-baths">
-                                            <option>Baths</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                                </div>
-                                            </div>
-                                        </div>
+                                      
                                         <!-- .col-md-3 end -->
                                         <div class="col-xs-12 col-sm-6 col-md-6 option-hide">
                                             <div class="filter mb-30">
@@ -163,9 +147,12 @@
                                 <h5>Property Status</h5>
                             </div>
                             <div class="widget--content">
+                                @foreach($units_stutus_counter as $units_stutus_counter)
                                 <ul class="list-unstyled mb-0">
-                              {{$units_stutus_counter}}
-                                </ul>
+                                <li>
+                                <a href="#">{{$units_stutus_counter->status}} <span>({{$units_stutus_counter->total}})</span></a>
+                                </li></ul>
+                                @endforeach
                             </div>
                         </div>
                         <!-- . widget property status end -->
@@ -179,18 +166,12 @@
                             </div>
                             <div class="widget--content">
                                 <ul class="list-unstyled mb-0">
+                                   
+                                   @foreach($cities_count2 as $cities_count)
                                     <li>
-                                        <a href="#">London <span>(5)</span></a>
+                                        <a href="#">{{$cities_count->name}} <span>({{$cities_count->total}})</span></a>
                                     </li>
-                                    <li>
-                                        <a href="#">Sydney <span>(10)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">New York <span>(4)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Paris <span>(7)</span></a>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -284,6 +265,8 @@
                                     </div>
                                 </div>
                             </div>
+
+                            @foreach($units as $unit)
                             <div class="properties properties-grid">
                                 <!-- .col-md-12 end -->
                                 <div class="col-xs-12 col-sm-6 col-md-6">
@@ -293,20 +276,20 @@
                                             <a href="property-single-gallery.html">
                                 <img src="/assets/images/properties/1.jpg" alt="property image" class="img-responsive">
 								</a>
-                                            <span class="property--status">For Sale</span>
+                                            <span class="property--status">{{$unit->status}}</span>
                                         </div>
                                         <div class="property--content">
                                             <div class="property--info">
-                                                <h5 class="property--title"><a href="property-single-gallery.html">House in Kent Street</a></h5>
+                                                <h5 class="property--title"><a href="property-single-gallery.html">{{$unit->title}}</a></h5>
                                                 <p class="property--location">127 Kent Street, Sydney, NSW 2000</p>
-                                                <p class="property--price">$130,000</p>
+                                                <p class="property--price">${{$unit->price}}</p>
                                             </div>
                                             <!-- .property-info end -->
                                             <div class="property--features">
                                                 <ul class="list-unstyled mb-0">
-                                                    <li><span class="feature">Beds:</span><span class="feature-num">2</span></li>
+                                                    <li><span class="feature">Rooms:</span><span class="feature-num">{{$unit->noOfRooms}}</span></li>
                                                     <li><span class="feature">Baths:</span><span class="feature-num">2</span></li>
-                                                    <li><span class="feature">Area:</span><span class="feature-num">587 sq ft</span></li>
+                                                    <li><span class="feature">Area:</span><span class="feature-num">{{$unit->area}}m2</span></li>
                                                 </ul>
                                             </div>
                                             <!-- .property-features end -->
@@ -315,150 +298,9 @@
                                 </div>
                                 <!-- .property item end -->
 
-                                <!-- .property-item #2 -->
-                                <div class="col-xs-12 col-sm-6 col-md-6">
-                                    <div class="property-item">
-                                        <div class="property--img">
-                                            <a href="property-single-gallery.html">
-                                <img src="/assets/images/properties/6.jpg" alt="property image" class="img-responsive">
-								</a>
-                                            <span class="property--status">For Rent</span>
-                                        </div>
-                                        <div class="property--content">
-                                            <div class="property--info">
-                                                <h5 class="property--title"><a href="property-single-gallery.html">Apartment For Rent</a></h5>
-                                                <p class="property--location">1609 N Richmond St, Chicago, IL 60647</p>
-                                                <p class="property--price">$900<span class="time">month</span></p>
-                                            </div>
-                                            <!-- .property-info end -->
-                                            <div class="property--features">
-                                                <ul class="list-unstyled mb-0">
-                                                    <li><span class="feature">Beds:</span><span class="feature-num">1</span></li>
-                                                    <li><span class="feature">Baths:</span><span class="feature-num">1</span></li>
-                                                    <li><span class="feature">Area:</span><span class="feature-num">500 sq ft</span></li>
-                                                </ul>
-                                            </div>
-                                            <!-- .property-features end -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- .property item end -->
-
-                                <!-- .property-item #3 -->
-                                <div class="col-xs-12 col-sm-6 col-md-6">
-                                    <div class="property-item">
-                                        <div class="property--img">
-                                            <a href="property-single-gallery.html">
-                                <img src="/assets/images/properties/5.jpg" alt="property image" class="img-responsive">
-								</a>
-                                            <span class="property--status">For Rent</span>
-                                        </div>
-                                        <div class="property--content">
-                                            <div class="property--info">
-                                                <h5 class="property--title"><a href="property-single-gallery.html">2750 House in Urban St.</a></h5>
-                                                <p class="property--location">2750 Urban Street Dr, Anderson, IN 46011</p>
-                                                <p class="property--price">$1.550<span class="time">month</span></p>
-                                            </div>
-                                            <!-- .property-info end -->
-                                            <div class="property--features">
-                                                <ul class="list-unstyled mb-0">
-                                                    <li><span class="feature">Beds:</span><span class="feature-num">2</span></li>
-                                                    <li><span class="feature">Baths:</span><span class="feature-num">1</span></li>
-                                                    <li><span class="feature">Area:</span><span class="feature-num">1390 sq ft</span></li>
-                                                </ul>
-                                            </div>
-                                            <!-- .property-features end -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- .property item end -->
-
-                                <!-- .property-item #4 -->
-                                <div class="col-xs-12 col-sm-6 col-md-6">
-                                    <div class="property-item">
-                                        <div class="property--img">
-                                            <a href="property-single-gallery.html">
-                                <img src="/assets/images/properties/12.jpg" alt="property image" class="img-responsive">
-								</a>
-                                            <span class="property--status">For Rent</span>
-                                        </div>
-                                        <div class="property--content">
-                                            <div class="property--info">
-                                                <h5 class="property--title"><a href="property-single-gallery.html">Modern Office For Rent</a></h5>
-                                                <p class="property--location">2003 Sheffield Ave, Anderson, IN 46011</p>
-                                                <p class="property--price">$530<span class="time">month</span></p>
-                                            </div>
-                                            <!-- .property-info end -->
-                                            <div class="property--features">
-                                                <ul class="list-unstyled mb-0">
-                                                    <li><span class="feature">Beds:</span><span class="feature-num">0</span></li>
-                                                    <li><span class="feature">Baths:</span><span class="feature-num">1</span></li>
-                                                    <li><span class="feature">Area:</span><span class="feature-num">150 sq ft</span></li>
-                                                </ul>
-                                            </div>
-                                            <!-- .property-features end -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- .property item end -->
-
-                                <!-- .property-item #5 -->
-                                <div class="col-xs-12 col-sm-6 col-md-6">
-                                    <div class="property-item">
-                                        <div class="property--img">
-                                            <a href="property-single-gallery.html">
-                                <img src="/assets/images/properties/3.jpg" alt="property image" class="img-responsive">
-								</a>
-                                            <span class="property--status">For Sale</span>
-                                        </div>
-                                        <div class="property--content">
-                                            <div class="property--info">
-                                                <h5 class="property--title"><a href="property-single-gallery.html">Apartment in Long St.</a></h5>
-                                                <p class="property--location">34 Long St, Jersey City, NJ 07305</p>
-                                                <p class="property--price">$70,000</p>
-                                            </div>
-                                            <!-- .property-info end -->
-                                            <div class="property--features">
-                                                <ul class="list-unstyled mb-0">
-                                                    <li><span class="feature">Beds:</span><span class="feature-num">2</span></li>
-                                                    <li><span class="feature">Baths:</span><span class="feature-num">1</span></li>
-                                                    <li><span class="feature">Area:</span><span class="feature-num">200 sq ft</span></li>
-                                                </ul>
-                                            </div>
-                                            <!-- .property-features end -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- .property item end -->
-
-                                <!-- .property-item #6 -->
-                                <div class="col-xs-12 col-sm-6 col-md-6">
-                                    <div class="property-item">
-                                        <div class="property--img">
-                                            <a href="property-single-gallery.html">
-                                <img src="/assets/images/properties/7.jpg" alt="property image" class="img-responsive">
-								</a>
-                                            <span class="property--status">For Sale</span>
-                                        </div>
-                                        <div class="property--content">
-                                            <div class="property--info">
-                                                <h5 class="property--title">House in Miami Town</h5>
-                                                <p class="property--location">415 E North Water, Miami 60611</p>
-                                                <p class="property--price">$210,000</p>
-                                            </div>
-                                            <!-- .property-info end -->
-                                            <div class="property--features">
-                                                <ul class="list-unstyled mb-0">
-                                                    <li><span class="feature">Beds:</span><span class="feature-num">2</span></li>
-                                                    <li><span class="feature">Baths:</span><span class="feature-num">2</span></li>
-                                                    <li><span class="feature">Area:</span><span class="feature-num">1370 sq ft</span></li>
-                                                </ul>
-                                            </div>
-                                            <!-- .property-features end -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- .property item end -->
+                            @endforeach
+                                
+                               
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-50">
                                 <ul class="pagination">

@@ -57,12 +57,24 @@ public function create()
 public function index()
 {
 
-    $units                  = Unit::with('user','Feature','City')->get();
-    $units_type_counter     = Unit::groupBy('type')->select('type', DB::raw('count(*) as total'))->get();
-    $units_stutus_counter   = Unit::groupBy('status')->select('status', DB::raw('count(*) as total'))->get();
-    $arr = array('units_type_counter'=>$units_type_counter, 'units_stutus_counter'=>$units_stutus_counter ,'units'=>$units );
-    return view('front.list',$arr);
+    $units                    = Unit::with('user','Feature','City')->get();
+    $units_type_counter       = Unit::groupBy('type')->select('type', DB::raw('count(*) as total'))->get();
+    $units_stutus_counter     = Unit::groupBy('status')->select('status', DB::raw('count(*) as total'))->get();
+    $units_room_counter       = Unit::groupBy('noOfRooms')->select('noOfRooms', DB::raw('count(*) as total'))->get();
 
+    $cities_count = DB::table('units')->join('cities','cities.id','=','units.city_id')->select('name', DB::raw('count(*) as total'))->groupBy('name')->get();               
+ 
+  
+    $arr = array('units_type_counter'=>$units_type_counter,
+                 'units_type_counterr'=>$units_type_counter,
+                 'units_stutus_counter'=>$units_stutus_counter ,
+                 'units_stutus_counter2'=>$units_stutus_counter ,
+                 'cities_count'=>$cities_count,
+                 'cities_count2'=>$cities_count,
+                 'units_room_counter'=>$units_room_counter,
+                 'units'=>$units 
+                );
+    return view('front.list',$arr);
 
 
 }
