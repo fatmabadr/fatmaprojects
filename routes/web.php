@@ -15,13 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/home1', function () {
-//     return view('front.index');
-// });
-
-// Route::get('/list', function () {
-//     return view('front.list');
-// });
 Route::get('/list', 'UnitController@index');
 
 
@@ -29,9 +22,10 @@ Route::get('/list', 'UnitController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::post('/search', 'UnitController@search');
 
 //units
+//Route::resource('unit','UnitController');
 Route::get('/units/create', 'unitController@create');                             
 Route::post('/Units/submit','UnitController@store');
 Route::get('/units/index', 'UnitController@index');

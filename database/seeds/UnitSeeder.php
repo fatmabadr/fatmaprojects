@@ -23,7 +23,7 @@ class UnitSeeder extends Seeder
                 'area' => $faker->randomDigit,
                 'noOfRooms' => $faker->randomElement(['1', '2','3','4']),
                 'detail' => $faker->realText(200, 1),
-                'status' => $faker->randomElement(['1','2']),
+                'status' => $faker->randomElement(['For rent','For sale']),
             ]);
         }
     }
