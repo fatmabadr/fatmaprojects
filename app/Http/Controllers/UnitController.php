@@ -31,19 +31,20 @@ class UnitController extends Controller
     $unit->city_id =$request ->input('city_id');
     $unit->save();
     //add to unit_features
+    /* Using attach to add many to many releation ship instead of the loop ;) */
 
+    $unit->Feature()->attach($request->input('features'));
 
-
-$features =Feature::all();
-foreach ($features as $feature) {
-    if ($request->has($feature->id)){
-        $unit_feature=new UnitFeature;
-        $unit_feature->unit_id = $unit->id;
-        $unit_feature->feature_id= $feature->id;
-        $unit_feature->save();      }
-                                }
-
-return "Done"   ;
+    /*$features =Feature::all();
+    foreach ($features as $feature) {
+        if ($request->has($feature->id)){
+            $unit_feature=new UnitFeature;
+            $unit_feature->unit_id = $unit->id;
+            $unit_feature->feature_id= $feature->id;
+            $unit_feature->save();      }
+                                    }
+    */
+    return "Done"   ;
 
 
 
