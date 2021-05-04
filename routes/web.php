@@ -39,3 +39,5 @@ Route::get('/Feature/index', 'FeatureController@index');
 Route::get('/city/create', 'cityController@create');
 Route::post('/city/submit','cityController@store');
 Route::get('/city/index', 'cityController@index');
+
+Route::get('/unit/{id}', 'UnitController@show');

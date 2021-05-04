@@ -273,7 +273,7 @@
                                     <!-- .property-item #1 -->
                                     <div class="property-item">
                                         <div class="property--img">
-                                            <a href="property-single-gallery.html">
+                                            <a href="/unit/{{$unit->id}}">
                                 <img src="/assets/images/properties/1.jpg" alt="property image" class="img-responsive">
 								</a>
                                             <span class="property--status">{{$unit->status}}</span>
@@ -288,7 +288,6 @@
                                             <div class="property--features">
                                                 <ul class="list-unstyled mb-0">
                                                     <li><span class="feature">Rooms:</span><span class="feature-num">{{$unit->noOfRooms}}</span></li>
-                                                    <li><span class="feature">Baths:</span><span class="feature-num">2</span></li>
                                                     <li><span class="feature">Area:</span><span class="feature-num">{{$unit->area}}m2</span></li>
                                                 </ul>
                                             </div>

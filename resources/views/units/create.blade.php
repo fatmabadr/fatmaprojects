@@ -7,7 +7,6 @@
 
   <h1>add new flat ya {{ Auth::user()->name  }}^_^</h1>
   {!! Form::open(['url' => 'Units/submit']) !!}
-<<<<<<< HEAD
   <div class="form-group">
 
 
@@ -17,7 +16,6 @@
 
 
  <div class="form-group">
->>>>>>> f84b2a383c19144a0173641e688dc7d63a2ca616
   <label for="type"> unit type:</label>
   <select name="type" id="type">
     <option value="Apartments">Apartments</option>
@@ -72,18 +70,13 @@
     <hr>
     <h3>selece features please</h3>
     @foreach($features as $feature)
-    <label><input type="checkbox" name="features[]" value="{{$feature->id}}"> {{$feature->name}}</label>
-    <label for="feature->id"> {{$feature->name}}</label><br>
+    <label><input type="checkbox" name="features[]" value="{{$feature->id}}"> {{$feature->name}}</label><br>
+  
     @endforeach
     </select>
     <hr>
 
-    @foreach($cities as $city)
-
-    <input type="checkbox" id="city_id" name="city_id" value="{{$city->id}}">
-    <label for="city->id"> {{$city->name}}</label><br>
-
-    @endforeach
+    
 
     <div class="form-group">
       {{Form::label('details ', 'details ')}}

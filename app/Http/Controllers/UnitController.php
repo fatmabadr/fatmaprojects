@@ -89,5 +89,13 @@ public function index()
 
 
 }
+
+public function show($id)
+{
+   $unit = Unit::where('id','=',$id)->get();
+   return $unit;
+
+
+}
 }
 
