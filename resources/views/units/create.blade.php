@@ -12,10 +12,10 @@
 
 
 =======
- 
-    
- 
- 
+
+
+
+
  <div class="form-group">
 >>>>>>> f84b2a383c19144a0173641e688dc7d63a2ca616
   <label for="type"> unit type:</label>
@@ -78,14 +78,10 @@
     </select>
     <hr>
 
-<<<<<<< HEAD
     @foreach($cities as $city)
-
 
     <input type="checkbox" id="city_id" name="city_id" value="{{$city->id}}">
     <label for="city->id"> {{$city->name}}</label><br>
-=======
->>>>>>> f84b2a383c19144a0173641e688dc7d63a2ca616
 
     @endforeach
 
