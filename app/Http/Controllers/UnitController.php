@@ -23,7 +23,7 @@ class UnitController extends Controller
     $unit->type     =$request->input('type');
     $unit->title    =$request ->input('title');
     $unit->price    =$request ->input('price');
-    $unit->status   =$request->input('status');
+    $unit->status   =$request->input('Status');
     $unit->user_id  =$request->input('user_id');
     $unit->area     =$request ->input('area');
     $unit->noOfRooms=$request ->input('noOfRooms');
@@ -93,7 +93,7 @@ public function index()
 public function show($id)
 {
    $unit = Unit::where('id','=',$id)->get();
-   return $unit;
+   return view('front.show_unit',['unit'=>$unit]);
 
 
 }
